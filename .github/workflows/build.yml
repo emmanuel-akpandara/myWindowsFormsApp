@@ -9,12 +9,12 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-dotnet@v2
         with:
-          dotnet-version: 4.8.x
+          dotnet-version: 5.0.x
       - run: dotnet restore
-      - run: dotnet build -r win-x64 --framework net48
+      - run: dotnet build
       - run: dotnet test
-      - run: dotnet publish -c Release -r win-x64 --self-contained true --framework net48
+      - run: dotnet publish -c Release -r win-x64 --self-contained true
       - uses: actions/upload-artifact@v2
         with:
           name: application
-          path: bin/Release/net48/win-x64/publish
+          path: bin/Release/net5.0/win-x64/publish
