@@ -13,6 +13,8 @@ jobs:
       - run: dotnet restore
       - run: dotnet build
       - run: dotnet test
-      - run: dotnet publish -c Release -r win-x64 --self-contained false
+      - run: dotnet publish -c Release -r win-x64 --self-contained true
       - uses: actions/upload-artifact@v2
-        
+        with:
+          name: application
+          path: bin/Release/net5.0/win-x64/publish
